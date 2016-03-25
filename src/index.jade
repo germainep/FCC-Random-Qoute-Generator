@@ -1,0 +1,16 @@
+doctype html
+html(ng-app='quoteGen')
+  head
+    script(src='http://code.angularjs.org/1.5.0/angular.js')
+    script(src="http://code.angularjs.org/1.5.0/angular-animate.js")
+    script(src='js/index.js')
+    link(rel='stylesheet' type='text/css' href='css/index.css')
+
+body(ng-controller='QuoteListCtrl')
+    h1 Random Quote Generator
+
+    .well
+      p.fade(animate-on-change='newQuote') {{newQuote.quote || 'click for a new quote'}}
+
+      blockquote.byline.fade(animate-on-change='newQuote') {{ '~ ' + newQuote.author}}
+    button(ng-click= 'send()') next
