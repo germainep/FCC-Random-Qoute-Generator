@@ -1,5 +1,5 @@
 angular.module('quoteGen', ['ngAnimate'])
-.controller('QuoteListCtrl', function($scope) {
+.controller('QuoteListCtrl', function($scope, $timeout) {
   var quotes= [
     {id: 0, quote: 'Scientists are peeping toms at the keyhole of eternity.', author: 'Arthur Koestler'},
     {id: 1, quote: 'Facts are the air of the scientists. Without them you never can fly.', author: 'Ivan Pavlov'},
@@ -15,9 +15,11 @@ angular.module('quoteGen', ['ngAnimate'])
     {id: 11, quote: 'One day, someone showed me a glass of water that was half full. And he said, "Is it half full or half empty?" So I drank the water. No more problem.', author: 'Alexander Jodorowsky'}
   ];
   
-  $scope.send = function() {
+  $scope.change = function() {
     var randomIndex = (Math.round(Math.random()*11));
-    $scope.newQuote = quotes[randomIndex];
+    $timeout(function() {
+      $scope.newQuote = quotes[randomIndex];
+    }, 00);
       
    
   };
@@ -29,8 +31,8 @@ angular.module('quoteGen', ['ngAnimate'])
       if(nv !== ov) {
         elem.addClass('changed');
         $timeout(function() {
-          element.removeClass('changed');
-        }, 2000);
+          elem.removeClass('changed');
+        }, 3000);
         }
       })
     }

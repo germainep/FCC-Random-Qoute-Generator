@@ -13,4 +13,4 @@ body(ng-controller='QuoteListCtrl')
       p.fade(animate-on-change='newQuote') {{newQuote.quote || 'click for a new quote'}}
 
       blockquote.byline.fade(animate-on-change='newQuote') {{ '~ ' + newQuote.author}}
-    button(ng-click= 'send()') next
+    button(ng-click= 'change()') next
